@@ -76,6 +76,13 @@ colSums(final_matrix_col)
 final_matrix_col[1,5]
 
 
+#Operadores Logicos 
+#Buscar < 6 en CyL
+mtcars[mtcars$cyl<6,]
+
+
+
+
 
 #-------- DATA SET ECONOMIA NARANJA
 
@@ -83,12 +90,22 @@ str(orangeec)
 
 ##Herramienta estadistica - Resumen del DATA SET por variable
 summary(orangeec)
+#Operadores Logicos 
+orangeec[orangeec$GDP.PC>=15000,]
+orangeec[orangeec$Creat.Ind...GDP<=2,]
+
+#Para hacer una selección de elementos de un vector, matriz o data frame podemos usar la función subset.
 
 
+new_orangeec <- subset(orangeec,orangeec$Internet.penetration...population>80
+                       & orangeec$Education.invest...GDP>=4.5) 
 
+new_orangeec
 
+new_orangeec <- subset(orangeec,orangeec$Internet.penetration...population>80
+                       & orangeec$Education.invest...GDP>=4.5,
+                       select = Creat.Ind...GDP) 
 
-
-
-
-
+new_orangeec
+##Renombrar Columna con libreria PLYR
+rename(orangeec,c("Creat.Ind...GDP"="AporteEcNja"))
