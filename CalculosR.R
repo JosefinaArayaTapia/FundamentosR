@@ -122,8 +122,18 @@ head(orangeec)
 tail(mtcars)
 tail(orangeec)
 
-##Libreria DPLYR
+##Libreria DPLYR -> SRT avanzado
 glimpse(orangeec)
 
+mi_vector <- 1:8
+mi_vector
+
+mi_matriz <- matrix(1:9,ncol = 3)
+mi_matriz
+
+mi_df <- mtcars[1:4,]
+mi_df
 
 
+mi_lista <-list(mi_vector,mi_matriz,mi_df)
+mi_lista
