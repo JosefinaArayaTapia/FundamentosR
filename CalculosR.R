@@ -109,3 +109,21 @@ new_orangeec <- subset(orangeec,orangeec$Internet.penetration...population>80
 new_orangeec
 ##Renombrar Columna con libreria PLYR
 rename(orangeec,c("Creat.Ind...GDP"="AporteEcNja"))
+
+#Fatores
+Nivel_Curso <-c("Basico","Intermedio","Avanzado")
+Nivel_Curso
+
+#6 Primeros Datos
+head(mtcars)
+head(orangeec)
+
+#Ultimos Registros
+tail(mtcars)
+tail(orangeec)
+
+##Libreria DPLYR
+glimpse(orangeec)
+
+
+
