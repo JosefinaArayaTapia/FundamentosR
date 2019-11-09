@@ -54,3 +54,45 @@ ggplot()+geom_histogram(data = mtcars,
   theme(panel.background = element_blank(),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
+
+
+##Orangeec
+
+ggplot()+geom_histogram(data = orangeec,
+                        aes(x=orangeec$GDP.PC),fill="Blue",color="Red",
+                        binwidth =2000)+
+  labs(x="PIB Per Capita",y="Cantidad de Paises",
+       title="PIB Per Capita por Pais LATAM")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+ggplot()+geom_histogram(data = orangeec,
+                        aes(x=orangeec$Creat.Ind...GDP),fill="Blue",color="Red",
+                        binwidth =1)+
+  labs(x="Aporte de Economia Naranja al PIB%",y="Cantidad de Paises",
+       title="Aporte de Economia al PIB por Pais LATAM")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+ggplot()+geom_histogram(data = orangeec,
+                        aes(x=orangeec$Internet.penetration...population),fill="red",color="gray",
+                        binwidth =5)+
+  labs(x="%Penetracion de Internet",y="Cantidad de Paises",
+       title="Penetracion % por Pais LATAM")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+
+
