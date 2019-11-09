@@ -137,3 +137,8 @@ mi_df
 
 mi_lista <-list(mi_vector,mi_matriz,mi_df)
 mi_lista
+
+##EDA con dataset proyecto - Gráficas de dispersión.
+
+
+
