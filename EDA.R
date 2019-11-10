@@ -93,6 +93,30 @@ ggplot()+geom_histogram(data = orangeec,
         panel.grid.minor = element_blank())
 
 
+##EDA con box plot- ggplot2
+
+boxplot(mtcars$hp,
+        ylab="Caballos de Fuerza",
+        main="Caballos de Fuerza en Carros mtcars")
+
+ggplot(mtcars,aes(x=as.factor(cyl),y=hp,fill=cyl))+
+  geom_boxplot(alpha=0.6)+
+  labs(x="Cilindros",y="Caballos de Fuerza", title = "Caballos de Fuerza segun cilindros en mtcars")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
 
 
+ggplot(mtcars,aes(x=am,y=mpg,fill=am))+
+  geom_boxplot(alpha=0.6)+
+  labs(x="Tipo de Caja",y="Millas por Galom", title = "Millas por galon segun tipo de caja en mtcars")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+#Ajustar Etiquetas desde Logicas.
+mtcars$am<-factor(mtcars$am,levels = c(TRUE,FALSE),
+                  labels = c("Manual","Automatico"))
 
