@@ -120,3 +120,78 @@ ggplot(mtcars,aes(x=am,y=mpg,fill=am))+
 mtcars$am<-factor(mtcars$am,levels = c(TRUE,FALSE),
                   labels = c("Manual","Automatico"))
 
+
+
+
+
+
+##Economia Naranja
+#Mean -> PROMEDIO
+
+economy <- mean(orangeec$GDP.PC)
+economy
+
+
+# Crear nueva variabale segun columna
+#  %>% -> PAsar a 
+
+orangeec <- orangeec %>%
+            mutate(Strong_economy=ifelse(orangeec$GDP.PC<economy,
+                                         "Por Debajo del Promedio PIB Per Capita",
+                                         "Por encima del promedio PIB Per Capita"))
+
+
+ggplot(orangeec,aes(x=orangeec$Strong_economy,y=orangeec$Creat.Ind...GDP,fill=Strong_economy))+
+  geom_boxplot(alpha=0.4)+
+  labs(x="Tipo de Pais",y="aporte Economia Naranja", 
+       title = "Aporte de Economia Naranja en PIB Paises LATAM con lato y bajo PIB Percapita")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+ggplot(orangeec,aes(x=orangeec$Strong_economy,y=orangeec$Internet.penetration...population,fill=Strong_economy))+
+  geom_boxplot(alpha=0.4)+
+  labs(x="Tipo de Pais",y="Penetracion de Internet", 
+       title = "Penetracion de Internet en PIB Paises LATAM con lato y bajo PIB Percapita")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+##Graficas de Dispersion = scatter Plot (X,Y)
+
+
+ggplot(mtcars,aes(hp,mpg))+
+  geom_point()+
+  labs(x="Caballas de Fuerza",y ="Millas por Galons",title="Caballos de Fuerza y millas por galon")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+
+ggplot(mtcars,aes(wt,hp))+
+  geom_point()+
+  labs(x="Peso",
+       y ="Caball0s de Fuerza",
+       title="Potencia y Caballos de Fuerza")+
+  theme(legend.position = "none")+
+  theme(panel.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+
+
+
+ggplot(mtcars,aes(hp,qsec))+
+  geom_point(aes(color=am,size=cyl))+
+  labs(x="caballos de Fuerza",
+       y ="Tiempo en 1/4 de milla",
+       title="Tiempo en 1/4 de milla y Caballos de Fuerza")
+
+
+
