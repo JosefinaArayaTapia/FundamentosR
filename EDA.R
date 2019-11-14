@@ -194,4 +194,65 @@ ggplot(mtcars,aes(hp,qsec))+
        title="Tiempo en 1/4 de milla y Caballos de Fuerza")
 
 
+##Scaler  Plot economia naranja
+
+
+ggplot(orangeec,aes(orangeec$Internet.penetration...population,orangeec$Creat.Ind...GDP))+
+  geom_point(aes(color=factor(orangeec$Strong_economy),size=orangeec$GDP.Growth..))+
+  labs(x="Penetracion de Internet",
+       y ="Aporte Economia Naranja  al PIB",
+       title="Internet y Aporte naranja segun economia y crecimiento pib ")
+
+
+
+
+ggplot(orangeec,aes(orangeec$Education.invest...GDP,orangeec$Unemployment))+
+  geom_point(aes(color=factor(orangeec$Strong_economy),size=orangeec$X..pop.below.poverty.))+
+  labs(x="Inversion en Educacion",
+       y ="Desempleo",
+       title="Inversion en Educacion y Desempleo segun economia y Linea de Pobreza ")
+  
+
+##plotly
+
+my_grafico <- ggplot(orangeec,aes(orangeec$Education.invest...GDP,orangeec$Unemployment,text=paste("Pais:", orangeec$Country)))+
+  geom_point(aes(color=factor(orangeec$Strong_economy),size=orangeec$X..pop.below.poverty.))+
+  labs(x="Inversion en Educacion",
+       y ="Desempleo",
+       title="Inversion en Educacion y Desempleo segun economia y Linea de Pobreza ")
+
+
+p=ggplotly(my_grafico)
+p
+
+##---Buscando correlaciones con pairs (DATASET[,--> TODAS LAS OBSERVACIONES 2:6 columnas])
+
+pairs(mtcars[,2:6])
+pairs(mtcars[,])
+
+
+new_data <- subset(mtcars,select = c(2,7:8,11,12))
+new_data
+pairs(new_data)
+
+
+pairs(mtcars[,-c(1,3,4,5,6,9,10,13)])
+
+#---- Filtro de Datos 
+
+Eficientes <- filter(mtcars, mtcars$mpg>=30)
+Eficientes
+pairs(Eficientes[,2:6])
+
+
+
+##-- FIltro con library("stringr")
+
+
+merc <- mtcars%>%
+        filter(str_detect(mtcars$model,"Merc"))
+
+merc
+
+pairs(merc[,2:6])
 
